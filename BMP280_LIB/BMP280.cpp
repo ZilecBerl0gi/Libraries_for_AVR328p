@@ -4,7 +4,6 @@
 #include "I2C.h"
 #include "BMP280_Registers.h"
 I2C BMP280_n;
-//калибровочные данные температуры
 void BMP280::InitPressureSensor(unsigned char Addr,int Freq_Cpu)
 {
 	ADDR = Addr;                     
@@ -120,7 +119,7 @@ void BMP280::ReadClibrationData()
 	BMP280_n.StartCondition();
 	BMP280_n.sendByte(ADDR);
 	LSB_cal = BMP280_n.ReadByte();
-	MSB_cal= BMP280_n.ReadByte();
+	MSB_cal = BMP280_n.ReadByte();
 	Calibration_dig_T1 = (MSB_cal << 8) | LSB_cal;
 	LSB_cal = BMP280_n.ReadByte();
 	MSB_cal= BMP280_n.ReadByte();

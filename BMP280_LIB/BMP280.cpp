@@ -320,6 +320,7 @@ void BMP280::setSettings()
 	BMP280_n.sendByte(Config_reg);
 	BMP280_n.sendByte(ctrl_meas_addr);
 	BMP280_n.sendByte(Ctrl_meas_reg);
+	BMP280_n.StopCondition();
 }
 
 void BMP280::SetFrequencyMeas(uint8_t Freq)
